@@ -3,17 +3,15 @@
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
-
-int *twoSum(int *nums, int numsSize, int target, int *returnSize) {
+int* twoSum(int* nums, int numsSize, int target, int* returnSize){
     *returnSize = 2;
-    int i = 0, j = 0;
-    int *result = (int *) malloc(sizeof(int) * 2);
-    for (i = 0; i < numsSize; i++) {
-        for (j = i + 1; j < numsSize; j++) {
-            if (target == nums[i] + nums[j]) {
+    int *result = (int *) malloc(sizeof(int)*2);
+    for (int i = 0; i < numsSize - 1; i++){
+        for (int j = i + 1; j < numsSize; j++){
+            if (nums[i] + nums[j] == target){
                 result[0] = i;
                 result[1] = j;
-                return result;
+                break;
             }
         }
     }
@@ -31,6 +29,6 @@ int main() {
 }
 
 /**
- * Runtime: 131 ms, faster than 77.46% of C online submissions for Two Sum.
- * Memory Usage: 6.5 MB, less than 28.10% of C online submissions for Two Sum.
+ * Runtime: 98 ms, faster than 88.61% of C online submissions for Two Sum.
+ * Memory Usage: 6.2 MB, less than 89.24% of C online submissions for Two Sum.
  */
