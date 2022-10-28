@@ -1,5 +1,3 @@
-
-
 int maxProfit(int *prices, int pricesSize) {
     int profit = 0;
     int min = 10001;
