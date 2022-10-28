@@ -28,7 +28,6 @@ int main() {
     }
 }
 
-/**
- * Runtime: 98 ms, faster than 88.61% of C online submissions for Two Sum.
- * Memory Usage: 6.2 MB, less than 89.24% of C online submissions for Two Sum.
- */
+// Runtime: 98 ms, faster than 88.61% of C online submissions for Two Sum.
+// Memory Usage: 6.2 MB, less than 89.24% of C online submissions for Two Sum.
+
