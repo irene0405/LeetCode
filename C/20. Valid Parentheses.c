@@ -44,3 +44,4 @@ int main() {
 
 // Runtime: 0 ms, faster than 100.00% of C online submissions for Valid Parentheses.
 // Memory Usage: 5.6 MB, less than 58.48% of C online submissions for Valid Parentheses.
+
