@@ -15,17 +15,17 @@ public:
         if (!root) {
             return true;
         }
-        int leftHight = getHight(root->left);
-        int rightHight = getHight(root->right);
-        return (abs(leftHight - rightHight) <= 1 && isBalanced(root->left) && isBalanced(root->right));
+        int leftHeight = getHeight(root->left);
+        int rightHeight = getHeight(root->right);
+        return (abs(leftHeight - rightHeight) <= 1 && isBalanced(root->left) && isBalanced(root->right));
     }
 
 private:
-    int getHight(TreeNode *root) {
+    int getHeight(TreeNode *root) {
         if (!root) {
             return 0;
         } else {
-            return max(getHight(root->left), getHight(root->right)) + 1;
+            return max(getHeight(root->left), getHeight(root->right)) + 1;
         }
     }
 };
