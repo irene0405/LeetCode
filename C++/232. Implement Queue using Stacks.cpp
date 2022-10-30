@@ -49,6 +49,6 @@ private:
  * bool param_4 = obj->empty();
  */
  
-// Runtime: 7 ms, faster than 10.97% of C++ online submissions for Implement Queue using Stacks.
-// Memory Usage: 7.1 MB, less than 12.83% of C++ online submissions for Implement Queue using Stacks.
+// Runtime: 5 ms, faster than 17.90% of C++ online submissions for Implement Queue using Stacks.
+// Memory Usage: 7.1 MB, less than 55.97% of C++ online submissions for Implement Queue using Stacks.
 
