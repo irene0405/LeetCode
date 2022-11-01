@@ -2,29 +2,32 @@ class Solution {
 public:
     vector <vector<int>> threeSum(vector<int> &nums) {
         vector <vector<int>> ans;
-        sort(begin(nums), end(nums));
-        unordered_map<int, int> um;
-
+        unordered_map<int, int> hashMap;
         int len = nums.size();
 
-        for (int num : nums) {
-            um[num]++;
-        }
+        sort(begin(nums), end(nums));
 
-        if (um[0] >= len - 1) {
-            ans.push_back({0, 0, 0});
-            return ans;
+        for (int num : nums) {
+            hashMap[num]++;
         }
 
         for (int i = 0; i < len - 2; i++) {
-            if (i && nums[i] == nums[i - 1]) continue;
+            if (i && nums[i] == nums[i - 1]) {
+                continue;
+            }
             for (int j = i + 1; j < len - 1; j++) {
-                if (j - 1 != i && nums[j] == nums[j - 1]) continue;
-                int key = 0 - nums[i] - nums[j];
-                if (!um.count(key)) continue;
-                if (key < nums[j]) break;
-                if (um[key] >= (1 + (nums[i] == key) + (nums[j] == key))) {
-                    ans.push_back({nums[i], nums[j], key});
+                if (j - 1 != i && nums[j] == nums[j - 1]) {
+                    continue;
+                }
+                int target = 0 - nums[i] - nums[j];
+                if (target < nums[j]) {
+                    break;
+                }
+                if (!hashMap.count(target)) {
+                    continue;
+                }
+                if (hashMap[target] >= (1 + (nums[i] == target) + (nums[j] == target))) {
+                    ans.push_back({nums[i], nums[j], target});
                 }
             }
         }
@@ -32,6 +35,6 @@ public:
     }
 };
 
-// Runtime: 233 ms, faster than 34.67% of C++ online submissions for 3Sum.
-// Memory Usage: 20.6 MB, less than 47.97% of C++ online submissions for 3Sum.
+// Runtime: 216 ms, faster than 39.22% of C++ online submissions for 3Sum.
+// Memory Usage: 20.5 MB, less than 48.93% of C++ online submissions for 3Sum.
 
