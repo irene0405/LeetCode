@@ -6,7 +6,7 @@ public:
         const int n = nums.size();
         for (int i = 0; i < n - 2; i++) {
             if (nums[i] > 0) break;
-            if (i > 0 && nums[i] == nums[i - 1]) continue;
+            if (i && nums[i] == nums[i - 1]) continue;
             int l = i + 1;
             int r = n - 1;
             while (l < r) {
@@ -27,6 +27,6 @@ public:
     }
 };
 
-// Runtime: 199 ms, faster than 44.53% of C++ online submissions for 3Sum.
-// Memory Usage: 19.9 MB, less than 85.09% of C++ online submissions for 3Sum.
+// Runtime: 144 ms, faster than 67.98% of C++ online submissions for 3Sum.
+// Memory Usage: 20 MB, less than 62.61% of C++ online submissions for 3Sum.
 
