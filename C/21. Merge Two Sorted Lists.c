@@ -5,46 +5,39 @@
  *     struct ListNode *next;
  * };
  */
-
-
-struct ListNode *mergeTwoLists(struct ListNode *list1, struct ListNode *list2) {
-    struct ListNode *l1 = list1;
-    struct ListNode *l2 = list2;
-    if (!l1) {
-        return l2;
+struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2){
+    if (list1 == NULL) {
+        return list2;
     }
-    if (!l2) {
-        return l1;
+    if (list2 == NULL) {
+        return list1;
     }
-    struct ListNode *p, *list;
-    if (l1->val <= l2->val) {
-        p = l1;
-        l1 = l1->next;
+    
+    struct ListNode *ptr, *ans;
+    if (list1->val < list2->val) {
+        ptr = list1;
+        list1 = list1->next;
     } else {
-        p = l2;
-        l2 = l2->next;
+        ptr = list2;
+        list2 = list2->next;
     }
-    list = p;
-    while (l1 && l2) {
-        if (l1->val < l2->val) {
-            p->next = l1;
-            l1 = l1->next;
+    
+    ans = ptr;
+    
+    while (list1 && list2) {
+        if (list1->val < list2->val) {
+            ptr->next = list1;
+            list1 = list1->next;
         } else {
-            p->next = l2;
-            l2 = l2->next;
+            ptr->next = list2;
+            list2 = list2->next;
         }
-        p->next->next = NULL;
-        p = p->next;
+        ptr = ptr->next;
     }
-    if (!l1) {
-        p->next = l2;
-    }
-    if (!l2) {
-        p->next = l1;
-    }
-    return list;
+    
+    ptr->next = list1? list1:list2;
+     return ans;
 }
 
-// Runtime: 6 ms, faster than 60.23% of C online submissions for Merge Two Sorted Lists.
-// Memory Usage: 6 MB, less than 71.42% of C online submissions for Merge Two Sorted Lists.
-
+// Runtime: 2 ms, faster than 92.81% of C online submissions for Merge Two Sorted Lists.
+// Memory Usage: 6.1 MB, less than 52.41% of C online submissions for Merge Two Sorted Lists.
