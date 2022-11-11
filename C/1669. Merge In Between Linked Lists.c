@@ -18,7 +18,9 @@ struct ListNode *mergeInBetween(struct ListNode *list1, int a, int b, struct Lis
         right = right->next;
     }
     struct ListNode *insert = list2;
-    while (insert->next) insert = insert->next;
+    while (insert->next) {
+        insert = insert->next;
+    }
 
     left->next = list2;
     insert->next = right;
