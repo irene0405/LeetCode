@@ -16,14 +16,15 @@ class Solution{
                 return;
             }
 
-            if (root->left != NULL) {
-                flatten(root->left);
-            }
             if (root->right != NULL) {
                 flatten(root->right);
             }
+            if (root->left != NULL) {
+                flatten(root->left);
+            }
 
-            struct TreeNode *temp = root->right;
+            struct TreeNode *temp;
+            temp = root->right;
             root->right = root->left;
             root->left = NULL;
             while (root->right != NULL) {
@@ -32,6 +33,3 @@ class Solution{
             root->right = temp;
         }
 };
-
-// Runtime: 7 ms, faster than 86.75% of C++ online submissions for Flatten Binary Tree to Linked List.
-// Memory Usage: 12.7 MB, less than 36.88% of C++ online submissions for Flatten Binary Tree to Linked List.
